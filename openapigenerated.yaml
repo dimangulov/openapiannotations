@@ -1,0 +1,45 @@
+openapi: 3.0.2
+info:
+  title: My Func Api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:7071'
+paths:
+  /api/GetNow:
+    get:
+      description: Get the current time
+      parameters:
+        - in: query
+          name: name
+          description: some name to show
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Normal response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: some text
+    post:
+      description: Get the current time
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: Name can be specified in the body
+                param1:
+                  type: string
+                  description: 'param1 is optional, because without star'
+
